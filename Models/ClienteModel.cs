@@ -1,52 +1,37 @@
-﻿using System.Security.Cryptography;
+﻿
 
-namespace variables.Models
+
+using System.ComponentModel.DataAnnotations;
+namespace MVC6.Models
 {
     public class ClienteModel
     {
         public int Id { get; set; }
+        [Required(ErrorMessage ="Campo requerido")]
+        //[MaxLength(10,ErrorMessage ="La cantidad maxima es 10 caracteres")]
+        [Display(Name = "Cedula o RUC")]
+        [Length(10,13,ErrorMessage = "La cantidad de caracteres debe ser entre 10 y 13 caracteres")]
         public string Cedula_RUC { get; set; }
+        [Required(ErrorMessage = "Campo requerido")]
+        //[MaxLength(10,ErrorMessage ="La cantidad maxima es 10 caracteres")]
+        [Display(Name = "Nombre")]
         public string Nombre { get; set; }
+        [Required(ErrorMessage = "Campo requerido")]
+        //[MaxLength(10,ErrorMessage ="La cantidad maxima es 10 caracteres")]
+        [Display(Name = "Apellido")]
         public string Apellido { get; set; }
+        [Required(ErrorMessage = "Campo requerido")]
+        //[MaxLength(10,ErrorMessage ="La cantidad maxima es 10 caracteres")]
         public string Direccion { get; set; }
+        [Required(ErrorMessage = "Campo requerido")]
+        [MaxLength(10,ErrorMessage ="La cantidad maxima es 10 caracteres")]
+        [Display(Name = "Celular o Convencional")]
         public string Telefono { get; set; }
-       
-
-        //propiedad opcional
-        public int? Edad { get; set; }
-
-        public bool Genero { get; set; } = false;
-        public DateOnly? Fecha_Nacimiento { get; set; }
-
-
-
-        //DateTime   =>   2025/02/17T 19:12:25.21255
-        //Date => 2025/02/17
-        //Time
+        [Required(ErrorMessage = "Campo requerido")]
+        [Range(0, 100,ErrorMessage ="La cantidad de caracteres debe ser entre 1 a 3")]
+        public int Edad { get; set; }
 
 
     }
 }
-
-
-/*
-Abstraccion => 
-Herencia => Hereda propiedades y metodos de una clase padre
-Poliformismo => Sobre carga de metodos
-
-Cuanto una clase se trasforma en objeto ????
-Cuando se crea una instancia
-*/
-
-
-/*
- 
- 
-List<ClienteModel>
- 
- 
- 
- 
- */
-
 
